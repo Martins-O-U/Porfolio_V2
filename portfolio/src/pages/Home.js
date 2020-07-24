@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from 'styled-components';
+import { PojectInfo, TechStack } from './PojectInformation';
 import { Link } from 'react-router-dom';
-import { connect } from "react-redux"
-import * as actions from '../state/actions';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { slides } from '../utils/data';
@@ -11,20 +10,20 @@ import Navigation from "../components/Website/Navigation";
 import Roller from "../components/LoadingIndicator/roller";
 
 
-const Home = ({ getUserStories, userStories, userStoriesStatus }) => {
+const Home = () => {
 
-    const [ isLoading, setLoader ] = useState(true);
+    const [isLoading, setLoader] = useState(true);
 
-    useEffect(() => {
-        getUserStories();
-    }, [userStories]) // eslint-disable-line
+    // useEffect(() => {
+    //     getUserStories();
+    // }, [userStories]) // eslint-disable-line
 
-    useEffect(() => {
-        if(userStoriesStatus === false && isLoading) {
-            toast.error("Oops, something went wrong. Refresh the page!");
-            setLoader(false);
-        }
-    }, [userStoriesStatus, isLoading])
+    // useEffect(() => {
+    //     if(userStoriesStatus === false && isLoading) {
+    //         toast.error("Oops, something went wrong. Refresh the page!");
+    //         setLoader(false);
+    //     }
+    // }, [userStoriesStatus, isLoading])
 
     return (
         <ParallaxContainer>
@@ -70,26 +69,26 @@ const Home = ({ getUserStories, userStories, userStoriesStatus }) => {
                         </div>
                     </div>
                     <div className="recent-posts">
-                        {   
-                            !userStoriesStatus && isLoading ? (
+                        {
+                            PojectInfo.length === 0 ? (
                                 <div className="loading-indicator">
                                     <Roller isSiteWide={true} />
                                 </div>
                             ) : (
-                                <ul>
-                                    {
-                                        userStories.slice(0, 3).map(({id, title, story}) => {
-                                            return (
-                                                <li key={id}>
-                                                    <h3>{title}</h3>
-                                                    <p>{`${story.split(" ").splice(0, 13).join(" ")}...`}</p>
-                                                    <Link to={`/stories/${id}`}>Read full story <span>&#62;</span></Link>
-                                                </li>
-                                            )
-                                        })
-                                    }
-                                </ul>
-                            )
+                                    <ul>
+                                        {
+                                            PojectInfo.slice(0, 3).map(({ id, name, about }) => {
+                                                return (
+                                                    <li key={id}>
+                                                        <h3>{name}</h3>
+                                                        <p>{`${about.split(" ").splice(0, 13).join(" ")}...`}</p>
+                                                        <Link to={`/stories/${id}`}>Read full story <span>&#62;</span></Link>
+                                                    </li>
+                                                )
+                                            })
+                                        }
+                                    </ul>
+                                )
                         }
                     </div>
                 </section>
@@ -98,7 +97,7 @@ const Home = ({ getUserStories, userStories, userStoriesStatus }) => {
     )
 }
 
-export default connect(state => state, actions)(Home);
+export default Home;
 
 
 const ParallaxContainer = styled.div`

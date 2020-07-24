@@ -1,50 +1,43 @@
 import React, { useState, useEffect } from "react";
-import * as actions from "../state/actions";
 import styled from 'styled-components';
-import { connect } from "react-redux";
+import { PojectInfo, TechStack } from './PojectInformation';
 import { withRouter } from "react-router-dom";
 import { imageBank } from "../utils/data";
 import Navigation from "../components/Website/Navigation";
 
 
 
-const SingleUserStory = ({ getUserStories, userStories, userStoriesStatus, ...props }) => {
+const SingleUserStory = (props) => {
 
-    const [ currentStory, setCurrentStory ] = useState([]);
-    const [ image, setImage ] = useState("");
-    
+    const [currentStory, setCurrentStory] = useState([]);
+    const [image, setImage] = useState("");
+
     useEffect(() => {
-        getUserStories();
+        setCurrentStory(PojectInfo.filter(item => item.id === Number(props.match.params.id)))
+        setImage(imageBank.filter((item, index) => index === (Number(props.match.params.id) - 1))[0] || "https://source.unsplash.com/1600x900/?refugees,refugee")
     }, []) // eslint-disable-line
 
-    useEffect(() => {
-        if(userStoriesStatus) {
-            setCurrentStory(userStories.filter(item => item.id === Number(props.match.params.id)))
-            setImage(imageBank.filter((item, index) => index === (Number(props.match.params.id) - 1))[0] || "https://source.unsplash.com/1600x900/?refugees,refugee")
-        }
-    }, [userStoriesStatus]) // eslint-disable-line
-
     return (
-        <StyledContainer>  
+        <StyledContainer>
             <Navigation noheader />
             {
-                userStoriesStatus && currentStory.length !== 0 ? (
+                currentStory.length !== 0 ? (
                     <main>
-                        <h1>{currentStory[0].title}</h1>
+                        <h1>{currentStory[0].name}</h1>
                         <div className="featured-image">
-                            <img src={image} alt={currentStory[0].title} />
+                            <img src={image} alt={currentStory[0].name} />
                         </div>
-                        <p>{currentStory[0].story}</p>
+                        <p>{currentStory[0].workedOn}</p>
                     </main>
                 ) : (
-                    <h1>Hiiii</h1>
-                )
+                        <h1>Hiiii</h1>
+                    )
             }
         </StyledContainer>
     )
 }
 
-export default connect(state => state, actions)(withRouter(SingleUserStory));
+export default withRouter(SingleUserStory);
 
 const StyledContainer = styled.main`
     padding: 2rem;
