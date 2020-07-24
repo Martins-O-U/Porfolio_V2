@@ -46,16 +46,17 @@ const Home = () => {
             </header>
             <main>
                 <section className="about-section">
-                    <h3>Who We Are!</h3>
-                    <p> We are an organization committed to saving the lives and protecting the rights, dignity, and security of refugees and displaced people worldwide by sharing their stories. We are a global, independent advocacy organization that successfully challenges governments, policymakers, and administrations to improve the lives of displaced people around the world.</p>
+                    <h3>Who I Am</h3>
+                    <p>I had my first real exposure to how Information Technology works about a year and six months ago, and it was a life-defining moment for me. At first, I explored Computer Networking and some aspects of Network Security, within which period I also got introduced to Web Development. Here, I knew I had found my path and began some self-study sessions. By August 2019, I quit all else (which included my Maintenance Supervisor job as a Mechanical Engineer) and joined Lambda School as a Full Stack Web Development student.</p>
+                    <p>To this very day, my love for coding never wavered, while learning daily I developed great interpersonal skills as well as skills required of a Software Engineer, be it the Front-End or Back-End/Database Management. My goal is to contribute towards making life easier using smart technology.</p>
+                    <p>When I am not working on a project, I am either volunteering, spending time with family and friends or playing board games.</p>
                 </section>
                 <section className="blog-section">
                     <div className="statistics">
-                        <div>
-                            <p className="stats-summary">I had my first real exposure to how Information Technology works about a year and six months ago, and it was a life-defining moment for me. At first, I explored Computer Networking and some aspects of Network Security, within which period I also got introduced to Web Development. Here, I knew I had found my path and began some self-study sessions. By August 2019, I quit all else (which included my Maintenance Supervisor job as a Mechanical Engineer) and joined Lambda School as a Full Stack Web Development student.</p>
-                            <p className="stats-summary">To this very day, my love for coding never wavered, while learning daily I developed great interpersonal skills as well as skills required of a Software Engineer, be it the Front-End or Back-End/Database Management. My goal is to contribute towards making life easier using smart technology.</p>
-                            <p className="stats-summary">When I am not working on a project, I am either volunteering, spending time with family and friends or playing board games.</p>
-                        </div>
+                        <h3>What I Use</h3>
+                        <p className="stats-summary">I had my first real exposure to how Information Technology works about a year and six months ago, and it was a life-defining moment for me. At first, I explored Computer Networking and some aspects of Network Security, within which period I also got introduced to Web Development. Here, I knew I had found my path and began some self-study sessions. By August 2019, I quit all else (which included my Maintenance Supervisor job as a Mechanical Engineer) and joined Lambda School as a Full Stack Web Development student.</p>
+                        <p className="stats-summary">To this very day, my love for coding never wavered, while learning daily I developed great interpersonal skills as well as skills required of a Software Engineer, be it the Front-End or Back-End/Database Management. My goal is to contribute towards making life easier using smart technology.</p>
+                        <p className="stats-summary">When I am not working on a project, I am either volunteering, spending time with family and friends or playing board games.</p>
                     </div>
                 </section>
             </main>
@@ -183,25 +184,22 @@ const ParallaxContainer = styled.div`
         }
 
         .about-section {
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 7rem 2rem;
-            flex: 0 1 auto;
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
+            width: 100%;
+            height: 40%;
+            padding: 2rem 2rem 1rem 2rem;
+            margin: auto;
 
             h3 {
                 font-size: 2.8rem;
-                max-width: 250px;
-                width: 100%; 
-                margin-right: 2rem;           
+                margin-right: 2rem; 
+                margin-down: 2rem;          
             }
 
             p {
                 font-size: 1.6rem;
                 line-height: 1.6;
-                width: calc(100% - 300px);
+                margin-bottom: 8px;
+                margin-top: 8px;
             }
 
             @media (max-width: 650px) {
@@ -228,7 +226,7 @@ const ParallaxContainer = styled.div`
 
             & > div {
                 background: #f2f6f5;
-                height: 100%;
+                height: 70%;
                 width: 100%;
                 display: flex;
                 flex-direction: column;
@@ -278,6 +276,11 @@ const ParallaxContainer = styled.div`
                     & > div {
                         width: 100%;
                         text-align: left;
+                    }
+                    h3 {
+                        font-size: 2.8rem;
+                        margin-right: 2rem; 
+                        margin-down: 2rem;          
                     }
 
                     .stats {
