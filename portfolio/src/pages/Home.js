@@ -14,17 +14,6 @@ const Home = () => {
 
     const [isLoading, setLoader] = useState(true);
 
-    // useEffect(() => {
-    //     getUserStories();
-    // }, [userStories]) // eslint-disable-line
-
-    // useEffect(() => {
-    //     if(userStoriesStatus === false && isLoading) {
-    //         toast.error("Oops, something went wrong. Refresh the page!");
-    //         setLoader(false);
-    //     }
-    // }, [userStoriesStatus, isLoading])
-
     return (
         <ParallaxContainer>
             <header className="is-home-page">
@@ -63,33 +52,10 @@ const Home = () => {
                 <section className="blog-section">
                     <div className="statistics">
                         <div>
-                            <p className="stats">71 million </p>
-                            <p className="stats-summary">people have been displaced from their home due to war, persecution or violence. That’s one of every 107 people on the planet.</p>
-                            <Link to="/stories">See all stories <span>&#62;</span></Link>
+                            <p className="stats-summary">I had my first real exposure to how Information Technology works about a year and six months ago, and it was a life-defining moment for me. At first, I explored Computer Networking and some aspects of Network Security, within which period I also got introduced to Web Development. Here, I knew I had found my path and began some self-study sessions. By August 2019, I quit all else (which included my Maintenance Supervisor job as a Mechanical Engineer) and joined Lambda School as a Full Stack Web Development student.</p>
+                            <p className="stats-summary">To this very day, my love for coding never wavered, while learning daily I developed great interpersonal skills as well as skills required of a Software Engineer, be it the Front-End or Back-End/Database Management. My goal is to contribute towards making life easier using smart technology.</p>
+                            <p className="stats-summary">When I am not working on a project, I am either volunteering, spending time with family and friends or playing board games.</p>
                         </div>
-                    </div>
-                    <div className="recent-posts">
-                        {
-                            PojectInfo.length === 0 ? (
-                                <div className="loading-indicator">
-                                    <Roller isSiteWide={true} />
-                                </div>
-                            ) : (
-                                    <ul>
-                                        {
-                                            PojectInfo.slice(0, 3).map(({ id, name, about }) => {
-                                                return (
-                                                    <li key={id}>
-                                                        <h3>{name}</h3>
-                                                        <p>{`${about.split(" ").splice(0, 13).join(" ")}...`}</p>
-                                                        <Link to={`/stories/${id}`}>Read full story <span>&#62;</span></Link>
-                                                    </li>
-                                                )
-                                            })
-                                        }
-                                    </ul>
-                                )
-                        }
                     </div>
                 </section>
             </main>
@@ -102,7 +68,7 @@ export default Home;
 
 const ParallaxContainer = styled.div`
     height: 100vh;
-    max-height: 100%;
+    max-height: 50%;
     overflow-x: hidden;
     perspective: 1px;
     perspective-origin: center top;
@@ -263,12 +229,12 @@ const ParallaxContainer = styled.div`
             & > div {
                 background: #f2f6f5;
                 height: 100%;
-                width: 50%;
+                width: 100%;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                padding: 5rem 2rem;
+                padding: 3rem 2rem 5rem 2rem;
 
                 &.recent-posts {
                     background: rgba(244, 244, 244, .24);
@@ -310,7 +276,6 @@ const ParallaxContainer = styled.div`
 
                 &.statistics {
                     & > div {
-                        max-width: 450px;
                         width: 100%;
                         text-align: left;
                     }
@@ -324,6 +289,7 @@ const ParallaxContainer = styled.div`
                     .stats-summary {
                         font-size: 1.7rem;
                         line-height: 1.5;
+                        margin: 2px 5px 5px 5px;
                     }
 
                     a {

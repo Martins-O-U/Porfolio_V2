@@ -17,14 +17,14 @@ export const imageBank = [
 export const slides = [
     {
         image: "https://images.unsplash.com/photo-1512508322418-69d6f5d2ba5c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1564&q=80",
-        title: "Some 70 million untold stories",
-        story: "After eight years of war, more than half the population of Syria has been forced to flee their homes, with 6.2 million people currently internally displaced and 5.6 million refugees."
+        title: "Hello there,",
+        story: "I am Martins Onyedikachi. A Software Engineer who is in love with technology"
 
     },
     {
         image: "https://images.unsplash.com/photo-1419848449479-6c8a7d8d62c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80",
-        title: "No access to education",
-        story: "Many children have lost a close relative or have a parent or sibling, and thousands have been orphaned or separated from their families in the chaos of war. Many have missed years of education, with 2.1 million children currently out of school."
+        title: "About Me",
+        story: "My goal is to contribute towards making life easier using smart technology. When I am not working on a project, I am either volunteering, spending time with family and friends or playing board games."
     },
     {
         image: "https://images.unsplash.com/photo-1530490125459-847a6d437825?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1526&q=80",

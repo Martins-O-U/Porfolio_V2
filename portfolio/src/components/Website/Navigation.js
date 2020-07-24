@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import logo from '../../assets/images/refugeestories-logo.png';
+import logo from '../../assets/images/MOU.png';
 
 
 const Navigation = ({ noheader, ishome }) => {
 
-    const [ isOpen, setIsOpen ] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     const toggleNav = () => {
         setIsOpen(!isOpen);
@@ -15,17 +15,17 @@ const Navigation = ({ noheader, ishome }) => {
     return (
         <StyledNavigation className={noheader ? 'no-header' : ishome ? "is-home" : null}>
             <div className="site-logo">
-                <img src={logo} alt="Refugee Stories Logo" />
+                <img src={logo} alt="Logo" />
             </div>
             <ul className={isOpen ? 'open' : null}>
-               <li onClick={toggleNav}><NavLink activeClassName='selected' exact to="/">Home</NavLink></li> 
-               <li onClick={toggleNav}><NavLink activeClassName='selected' to="/stories">Stories</NavLink></li> 
-               <li onClick={toggleNav}><NavLink activeClassName='selected' to="/submit-story">Submit Story</NavLink></li> 
-               <li onClick={toggleNav}><NavLink activeClassName='selected' to="/volunteer">Volunteer</NavLink></li> 
-               {
-                    localStorage.getItem('token') && 
-                        <li onClick={toggleNav}><NavLink activeClassName='selected' to="/dashboard">My Dashboard</NavLink></li>  
-               }
+                <li onClick={toggleNav}><NavLink activeClassName='selected' exact to="/">Home</NavLink></li>
+                <li onClick={toggleNav}><NavLink activeClassName='selected' to="/stories">Stories</NavLink></li>
+                <li onClick={toggleNav}><NavLink activeClassName='selected' to="/submit-story">Submit Story</NavLink></li>
+                <li onClick={toggleNav}><NavLink activeClassName='selected' to="/volunteer">Volunteer</NavLink></li>
+                {
+                    localStorage.getItem('token') &&
+                    <li onClick={toggleNav}><NavLink activeClassName='selected' to="/dashboard">My Dashboard</NavLink></li>
+                }
             </ul>
             <button className={isOpen ? 'open responsive-nav' : 'responsive-nav'} onClick={toggleNav}>
                 <span></span>
@@ -87,6 +87,9 @@ const StyledNavigation = styled.nav`
 
     .site-logo {
         max-width: 50px;
+        img{
+            border-radius: 20%;
+        }
     }
 
     ul {
